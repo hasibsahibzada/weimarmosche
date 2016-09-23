@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        }
+    },
+    "dependent_plugins": {}
+}

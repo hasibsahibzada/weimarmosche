@@ -1,0 +1,78 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "de.mosche.weimar"
+        }
+    },
+    "dependent_plugins": {}
+}
