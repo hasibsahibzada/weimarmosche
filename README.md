@@ -2,7 +2,7 @@
 This is a PhoneGap application designed for Weimar mosque. 
 
 
-#Tasks:
+##Tasks:
 1. Development of pages
 	- Login page, man in page, news feed form, messge, calendar, menu.
 2. Connections (Dynamic) -> DB
