@@ -17,35 +17,34 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css" >
 	<link rel="stylesheet" href="css/animate.min.css">  <!-- Menu slide animation -->
 	<link rel="stylesheet" href="css/slider.css">  <!-- Menu slide animation -->
+	<link rel="stylesheet" href="css/list_post.css" >
+
 
 	<link rel="stylesheet" href="css/responsive.css" >
   </head>
 
 
-
-	<body>
-
- 	<div class="app">
-
-
-		<div canvas="container">
-
+<body>
+ <div class="app">
+ 	<div id="deviceready">
+	  <div canvas="container">
 		<div id="toolbar">
 
-			<img class="js-open-left-slidebar" id = "sidebarbutton" src="img/sidebar.png">
+		  <img class="js-toggle-left-slidebar" id = "sidebarbutton" src="img/sidebar.png">
 
-			Weimar Mosche
-
+		  <div id="title" >
+				Weimar Mosche
+		  </div>
 		</div>
 
 
-		<div id="PageWrapper">
-				<div id="scroller">
+	   <div id="PageWrapper">
+		  <div id="scroller">
 					
 					<!-- <ul id="thelist"><li>Pretty row 1</li></ul> -->
 
 					<!-- Slider -->
-					<section id="main-slider" class="no-margin">
+			<section id="main-slider" class="no-margin">
 						<div class="carousel slide">
 							<ol class="carousel-indicators">
 							<li data-target="#main-slider" data-slide-to="0" class="active"></li>
@@ -119,15 +118,72 @@
 							</div>
 						</div>
 						</div>
-					</section>
+			</section>
 
-					<div class="container">
-						<div class="center wow fadeInDown">
+			<div class="container">
+			  <div class="center wow fadeInDown">
 
-							<h2 style="text-align:center;"> Posts </h2>
+				<h2 style="text-align:center;"> Posts </h2>
+
+				<!-- posts by category comes here -->
+				<div id="posts">
+				<div class="row">
+					<div class="thumbnail">
+						<div onclick="clickme('smook');">
+
+							<h3>Smoke On The Water</h3>
+									 
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
+							    
+							<img src="img/s1.jpg"  class="img-responsive"style=" margin-left: auto; margin-right: auto;" >
+
 						</div>
 					</div>
 				</div>
+
+				<div class="row">
+						<div class="thumbnail">
+							<div onclick="clickme('smook');"> 
+					
+						    <h3>Headline</h3>
+							            
+						    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
+								     
+							<img src="img/s2.jpg"  class="img-responsive" style=" margin-left: auto; margin-right: auto;">
+						</div>	     
+					</div>
+				</div>			
+		
+			    <div class="row">
+			    	<div class="thumbnail">
+			    		<div onclick="clickme('smook');"> 
+
+				      		<h3>Paradise Found</h3>
+
+				           	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
+								        
+					       	<img src="img/s3.jpg"  class="img-responsive" style=" margin-left: auto; margin-right: auto;">
+					    </div>
+				    </div>			     
+			</div>
+
+
+				<div class="row">
+			    	<div class="thumbnail">
+			    		<div onclick="clickme('smook');"> 
+					      	<h3>The Grasslands</h3>
+						
+				            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
+								        
+							<img src="img/s4.jpg"  class="img-responsive" style=" margin-left: auto; margin-right: auto;">
+
+					    </div>				     
+				    </div>
+				</div>
+			</div>
+			</div>
+		   </div>
+		  </div>
 		</div>
 
 		<div id="footer">
@@ -136,9 +192,7 @@
 
 		</div>
 
-
-
-		</div>
+	</div>
 
 		<div off-canvas="slidebar-1 left reveal">
 				<div id = "sidbarnav">
@@ -153,28 +207,22 @@
 
 		<div off-canvas="slidebar-4 bottom overlay">
 			<div id = "FootbarMenu">
-				<ul>
-					  <li><a  href="login.html">Login</a></li>
-					  <li><a href="newfeed.html">Post</a></li>
-					  <li><a href="message.html">Message</a></li>
-					  <li><a href="#contact">Events</a></li>
-				</ul>
+				<!-- menu changes here -->
 			</div>
 		</div>
  			
- 
-	</div>
-
-
+ 		</div>
+</div>
+<!-- phonegap javascript -->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="js/slidebars.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/scroll/iscroll.js?v4"></script>
 <script src="js/bootstrap.min.js"></script>
-
 
 <!-- This is javascript scroll feature  -->
 	<script type="text/javascript">
@@ -191,7 +239,63 @@
 	
 	</script>
 
+	<script type="text/javascript">
 
+	// check if user is logged in or not
+	var user_status = window.localStorage.getItem("key");
+
+	if (user_status !=null){
+
+		var PWDiv = document.getElementById("title");
+		PWDiv.innerHTML +="Login as " + user_status + "<br>";
+
+		// change footbar menu
+		var user_menu = "<ul> <li><a href='newfeed.html'>Post</a></li> <li><a href='prayertime.html'>Set prayer</a></li> <li><a href='#'' onclick= 'logout();''>Logout</a></li> </ul>";
+		var footbar_menu = document.getElementById("FootbarMenu");
+
+
+		footbar_menu.innerHTML = user_menu;
+
+
+	}
+	else {
+
+		// change footbar menu
+		var non_user_menu = "<ul> <li><a href='login.html'>Login</a></li> </ul>";
+
+
+		var footbar_menu = document.getElementById("FootbarMenu");
+
+
+		footbar_menu.innerHTML = non_user_menu;
+
+
+	}
+
+
+
+	// logout 
+	function logout(){
+
+				// clear the storage
+                window.localStorage.removeItem("key");
+                window.localStorage.clear();
+                window.location.href = "index.html";
+
+}
+
+	function clickme (postid) {
+
+			   var keyName = window.localStorage.key(1);
+
+               window.localStorage.setItem("postid", postid);
+
+		       window.location.href = "detail.html";
+
+	}
+
+	
+	</script>
 
 
 <script type="text/javascript">app.initialize(); </script>

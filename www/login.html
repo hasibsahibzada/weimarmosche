@@ -8,8 +8,6 @@
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
 
-	<link rel="stylesheet" href="css/slidebars.css">
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
@@ -25,8 +23,10 @@
 
  	<div class="app">
 
+ 		<div id="deviceready">
 
 		<div canvas="container">
+
 
 		<div id="toolbar">
 				
@@ -38,22 +38,17 @@
 
 
 		<div id="PageWrapper">
+
 			<div id="scroller">
-					
 			<div class="login-page">
 			  <div class="form">
-			    <form class="register-form">
-			      <input type="text" placeholder="name"/>
-			      <input type="password" placeholder="password"/>
-			      <input type="text" placeholder="email address"/>
-			      <button>create</button>
-			      <p class="message">Already registered? <a href="#">Sign In</a></p>
-			    </form>
-			    <form class="login-form">
-			      <input type="text" placeholder="username"/>
-			      <input type="password" placeholder="password"/>
-			      <button>login</button>
-			      <p class="message">Not registered? <a href="#">Create an account</a></p>
+			    <form class="login-form" >
+			       <div id="loginForm"> 
+				      <input type="text" placeholder="username" id="user"/>
+				      <input type="password" placeholder="password" id="pass"/>
+				      <button id="login">login</button> <br>
+				      <button>Cancel</button>
+			  	  </div>
 			    </form>
 			  </div>
 			</div>
@@ -61,38 +56,11 @@
 				</div>
 		</div>
 
-		<div id="footer">
-
-			<img class="js-open-bottom-slidebar" id = "Footbaricon" src="img/down_menu.png">
-
-		</div>
-
 
 
 		</div>
 
-		<div off-canvas="slidebar-1 left reveal">
-				<div id = "sidbarnav">
-			<ul>
-				  <li><a href="#news">All</a></li>
-				  <li><a href="#news">News</a></li>
-				  <li><a href="#contact">Quran</a></li>
-				  <li><a href="#contact">Events</a></li>
-			</ul>
-				</div>
-		</div>
-
-		<div off-canvas="slidebar-4 bottom overlay">
-			<div id = "FootbarMenu">
-				<ul>
-					  <li><a href="#news">login</a></li>
-					  <li><a href="#news">News</a></li>
-					  <li><a href="#contact">Quran</a></li>
-					  <li><a href="#contact">Events</a></li>
-				</ul>
-			</div>
-		</div>
- 			
+	</div>
  
 	</div>
 
@@ -101,9 +69,9 @@
 <script type="text/javascript" src="js/index.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="js/slidebars.js"></script>
-<script src="js/scripts.js"></script>
 <script src="js/scroll/iscroll.js?v4"></script>
+<script src="js/login.js"></script>
+
 
 <!-- This is javascript scroll feature  -->
 	<script type="text/javascript">
@@ -115,21 +83,17 @@
 
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-		document.addEventListener('DOMContentLoaded', loaded, false);
-
 	</script>
 
-
-	<!-- login javascrip -->
-	<script type="text/javascript">
-	$('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-	});
-	</script>
 
 
 
 <script type="text/javascript">app.initialize(); </script>
+
+
+
+
+
 
   </body>
 </html>

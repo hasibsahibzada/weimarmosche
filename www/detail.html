@@ -13,41 +13,138 @@
 	<link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
-
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css" >
   
   </head>
 
 
 
-	<body>
+<body>
 
- 	<div class="app">
+ <div class="app">
+   <div id="deviceready">
+  	<div canvas="container">
 
-
-		<div canvas="container">
-
-		<div id="toolbar">
-
+	  <div id="toolbar">
 			<img id = "sidebarbutton" src="img/back.png" onclick="javascript:location.href='index.html'">
 
 			Detail
+	  </div>
 
-		</div>
+
+	   <div id="PageWrapper">	
+		<div id="scroller">
+			<div class="container">
+				<div class="center wow fadeInDown">
+
+					<div class="row" >
+
+						<h3 style="text-align:center;" >Smoke On The Water</h3>
+										
+						<img src="img/s1.jpg" class="img-responsive" style=" margin-left: auto; margin-right: auto;">
+					</div>
+
+					<div class="row">
+						<div class="thumbnail">
+										
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>    
+						</div>     
+					</div>
+					
+					<!-- comment start here -->
+					<div class="row">
+						<div class="thumbnail">
+
+							<h4 style="text-align:left;" >Comments</h4> <br>
+
+						<!-- Each persons' comment -->
+						
+						<div class="thumbnail" >
+							<div class="row">
+								<!-- user image -->
+
+								<div class="col-xs-4 col-sm-4 col-md-4 ">
+									<img src="img/uc.png" class="img-responsive">
+								</div>
+
+								<!-- username and date of comment -->
+								<div class="col-xs-8 col-sm-8 col-md-8">
+								 	<h4>Naqibullah</h4>
+								 	<h5> 7 september at 14:46 </h5> 
+								</div>
+							</div>     	      
+								<!-- user's comment -->
+								<div class="row">
+									<div class="col-md-9 ">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+										</p>
+									</div>
+								</div>
+						</div>
 
 
-		<div id="PageWrapper">
-				<div id="scroller">
-					Product detail here
+
+						<div class="thumbnail" >
+							<div class="row">
+								<!-- user image -->
+
+								<div class="col-xs-4 col-sm-4 col-md-4 ">
+									<img src="img/uc.png" class="img-responsive">
+								</div>
+
+								<!-- username and date of comment -->
+								<div class="col-xs-8 col-sm-8 col-md-8">
+								 	<h4>Shafiullah</h4>
+								 	<h5> 7 september at 14:46 </h5> 
+								</div>
+							</div>     	      
+								<!-- user's comment -->
+								<div class="row">
+									<div class="col-md-9 ">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+										</p>
+									</div>
+								</div>
+						</div>
+
+
+
+						<div class="thumbnail" >
+							<div class="row">
+								<!-- user image -->
+
+								<div class="col-xs-4 col-sm-4 col-md-4 ">
+									<img src="img/uc.png" class="img-responsive">
+								</div>
+
+								<!-- username and date of comment -->
+								<div class="col-xs-8 col-sm-8 col-md-8">
+								 	<h4>Atiqullah</h4>
+								 	<h5> 7 september at 14:46 </h5> 
+								</div>
+							</div>     	      
+								<!-- user's comment -->
+								<div class="row">
+									<div class="col-md-9 ">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+										</p>
+									</div>
+								</div>
+						</div>
+
+					</div>
+
+					</div>
 				</div>
+			</div>
 		</div>
+	</div>
+	<div id="footer">
 
-		<div id="footer">
+	<img class="js-open-bottom-slidebar" id = "Footbaricon" src="img/down_menu.png">
 
-		<img class="js-open-bottom-slidebar" id = "Footbaricon" src="img/down_menu.png">
-
-		</div>
-
-
+			</div>
 
 		</div>
 
@@ -73,8 +170,8 @@
 			</div>
 		</div>
  			
- 
-	</div>
+ 	</div>
+</div>
 
 
 <script type="text/javascript" src="cordova.js"></script>
@@ -99,8 +196,18 @@
 
 	</script>
 
+<!--
+<script type="text/javascript">
+
+	var postid = window.localStorage.getItem("postid");
 
 
+	var postname = document.getElementById("product_detail");
+
+		postname.innerHTML = postid + " is the thing we want to show <br>";
+
+</script>
+-->
 
 <script type="text/javascript">app.initialize(); </script>
 
