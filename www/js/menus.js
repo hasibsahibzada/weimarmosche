@@ -1,4 +1,6 @@
 	
+	function load_sidebar_menu(){
+
 	// sidebar menu
 	 $.ajax({url: 'http://10.0.0.48/weimarmosche/server/webserver/get_cathegory.php',
                     type: 'post',                  
@@ -44,7 +46,11 @@
                 }); 
 
 	
+}
 
+
+function load_bottom_menu(){
+	
 
 	// bottom menu
 	if (localStorage.username){   // if the user is logged in
@@ -77,5 +83,5 @@
 	}
 
 
-
+}
 
