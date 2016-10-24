@@ -30,8 +30,9 @@
 	  <div canvas="container">
 		<div id="toolbar">
 
-		  <img class="js-toggle-left-slidebar" id = "sidebarbutton" src="img/sidebar.png">
-
+		 <div class="js-toggle-left-slidebar" id="sidebar_img">
+		  <img  id = "sidebarbutton" src="img/sidebar.png">
+		 </div>
 		  <div id="title" >
 				Weimar Mosche
 		  </div>
@@ -127,102 +128,38 @@
 
 				<!-- posts by category comes here -->
 				<div id="posts">
-				<div class="row">
-					<div class="thumbnail">
-						<div onclick="clickme('smook');">
 
-							<h3>Smoke On The Water</h3>
-									 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
-							    
-							<img src="img/s1.jpg"  class="img-responsive"style=" margin-left: auto; margin-right: auto;" >
-
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-						<div class="thumbnail">
-							<div onclick="clickme('smook');"> 
-					
-						    <h3>Headline</h3>
-							            
-						    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
-								     
-							<img src="img/s2.jpg"  class="img-responsive" style=" margin-left: auto; margin-right: auto;">
-						</div>	     
-					</div>
-				</div>			
-		
-			    <div class="row">
-			    	<div class="thumbnail">
-			    		<div onclick="clickme('smook');"> 
-
-				      		<h3>Paradise Found</h3>
-
-				           	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
-								        
-					       	<img src="img/s3.jpg"  class="img-responsive" style=" margin-left: auto; margin-right: auto;">
-					    </div>
-				    </div>			     
-			</div>
-
-
-				<div class="row">
-			    	<div class="thumbnail">
-			    		<div onclick="clickme('smook');"> 
-					      	<h3>The Grasslands</h3>
-						
-				            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>
-								        
-							<img src="img/s4.jpg"  class="img-responsive" style=" margin-left: auto; margin-right: auto;">
-
-					    </div>				     
-				    </div>
-				</div>
 			</div>
 			</div>
 		   </div>
 		  </div>
 		</div>
 
-		<div id="footer">
+	
+		<div id="footer" class="js-toggle-bottom-slidebar" >
 
-			 <img class="js-open-bottom-slidebar" id = "Footbaricon" src="img/down_menu.png">
+
+			<img src="img/up.png">
 
 		</div>
-
+	 
 	</div>
 
 		<div off-canvas="slidebar-1 left reveal">
 				<div id = "sidbarnav">
-			<ul>
-				  <li><a href="#news">All</a></li>
-				  <li><a href="#news">News</a></li>
-				  <li><a href="#contact">Quran</a></li>
-				  <li><a href="#contact">Events</a></li>
-			</ul>
+					<!-- sidebar menu loaded from server -->
 				</div>
 		</div>
 
-		<div off-canvas="slidebar-4 bottom overlay">
+		<div off-canvas="slidebar-4 bottom reveal" >
 			<div id = "FootbarMenu">
-				<!-- menu changes here -->
+				<!-- bottom menu loaded from server -->
 			</div>
 		</div>
  			
  		</div>
 </div>
-<!-- phonegap javascript -->
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="js/slidebars.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/scroll/iscroll.js?v4"></script>
-<script src="js/bootstrap.min.js"></script>
 
 <!-- This is javascript scroll feature  -->
 	<script type="text/javascript">
@@ -239,41 +176,11 @@
 	
 	</script>
 
+
+	<!-- Javascript functions -->
 	<script type="text/javascript">
 
-	// check if user is logged in or not
-	var user_status = window.localStorage.getItem("key");
-
-	if (user_status !=null){
-
-		var PWDiv = document.getElementById("title");
-		PWDiv.innerHTML +="Login as " + user_status + "<br>";
-
-		// change footbar menu
-		var user_menu = "<ul> <li><a href='newfeed.html'>Post</a></li> <li><a href='prayertime.html'>Set prayer</a></li> <li><a href='#'' onclick= 'logout();''>Logout</a></li> </ul>";
-		var footbar_menu = document.getElementById("FootbarMenu");
-
-
-		footbar_menu.innerHTML = user_menu;
-
-
-	}
-	else {
-
-		// change footbar menu
-		var non_user_menu = "<ul> <li><a href='login.html'>Login</a></li> </ul>";
-
-
-		var footbar_menu = document.getElementById("FootbarMenu");
-
-
-		footbar_menu.innerHTML = non_user_menu;
-
-
-	}
-
-
-
+	
 	// logout 
 	function logout(){
 
@@ -282,9 +189,9 @@
                 window.localStorage.clear();
                 window.location.href = "index.html";
 
-}
+	}
 
-	function clickme (postid) {
+	function view_detail(postid) {
 
 			   var keyName = window.localStorage.key(1);
 
@@ -294,9 +201,163 @@
 
 	}
 
+	function load_posts(cat_id){
+
+		$.ajax({url: 'http://10.0.0.48/weimarmosche/server/get_posts.php',
+			data: {category: cat_id},
+            type: 'post',                  
+            async: 'true',
+            dataType: 'json',
+            
+            beforeSend: function() {
+                // This callback function will trigger before data is sent
+                console.log("post requesting..");
+                },
+
+            complete: function() {
+                // This callback function will trigger on data sent/received complete
+                console.log("posts completed");
+                    },
+
+            success: function (result) {
+            	// if posts available to the category
+            	if (typeof result.status === "undefined" && typeof result.wrong === "undefined") {
+				   	var all_body_post ="";
+				    for (i = 0; i < result.length; i++) {
+
+				    	all_body_post +="<div class='row'><div class='thumbnail'>";
+
+	   					all_body_post += "<div onclick=view_detail(" + result[i].title +")>";
+
+	   					all_body_post += "<h3>" + result[i].title + "</h3>";
+
+	   					all_body_post += "<p>";
+
+	   					all_body_post += result[i].body;
+
+	   					all_body_post += "</p>";
+
+	   					all_body_post += "<img src='" + result[i].img_url +"' class='img-responsive' style='margin-left: auto; margin-right: auto;'>";
+	   					all_body_post += "</div></div></div>"
+					}
+		
+					// access the post div 
+					var post_div = document.getElementById("posts");
+
+					// insert the new elements in the post div
+					post_div.innerHTML = all_body_post;
+
+
+
+				} else {   // if something went wrong
+				  
+					
+            		if (typeof result.status === "undefined") {// meaning there is no posts
+            		}
+
+            		else {
+
+					var all_body_post ="<div class='row'><div class='thumbnail'>";
+					all_body_post += "<p>";
+
+					all_body_post += "There is no post for this category!" ;
+
+					all_body_post += "</p>";
+
+
+					all_body_post += "</div></div></div>"
+
+					// access the post div 
+					var post_div = document.getElementById("posts");
+
+					// insert the new elements in the post div
+					post_div.innerHTML = all_body_post;
+
+            		}
+
+            		if (typeof result.wrong === "undefined") {// meaning there is no posts
+
+            		}
+            		else {
+
+					var all_body_post ="<div class='row'><div class='thumbnail'>";
+					all_body_post += "<p>";
+
+					all_body_post += "Something went wrong!" ;
+
+					all_body_post += "</p>";
+
+
+					all_body_post += "</div></div></div>"
+
+					// access the post div 
+					var post_div = document.getElementById("posts");
+
+					// insert the new elements in the post div
+					post_div.innerHTML = all_body_post;
+
+            	}	
+
+				}
+
+            	
+                
+               
+        	},
+
+        	error: function (request,error) {
+            	// This callback function will trigger on unsuccessful action  
+
+                //alert('Network error has occurred please try again!');
+                var all_body_post ="<div class='row'><div class='thumbnail'>";
+					all_body_post += "<p>";
+
+					all_body_post += "network Something went wrong!" ;
+
+					all_body_post += "</p>";
+
+
+					all_body_post += "</div></div></div>"
+
+					// access the post div 
+					var post_div = document.getElementById("posts");
+
+					// insert the new elements in the post div
+					post_div.innerHTML = all_body_post;
+            }
+
+        }); 
+
+	}
 	
 	</script>
 
+<!-- phonegap javascript -->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="js/slidebars.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/scroll/iscroll.js?v4"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bottom_menu.js"></script>
+
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    
+
+load_posts(0);
+
+
+
+
+});
+
+</script>
 
 <script type="text/javascript">app.initialize(); </script>
 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQM Complex Demo</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" /> 
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>    
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div data-role="page" id="login" data-theme="a">
+        <div data-role="header" data-theme="b">
+            <h3>Login Page</h3>
+        </div>
+  
+        <div data-role="content">
+            <form id="check-user" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
+                <fieldset>
+                    <div data-role="fieldcontain">
+                        <label for="username">Enter your username:</label>
+                        <input type="text" value="" name="username" id="username"/>
+                    </div>                                 
+                    <div data-role="fieldcontain">                                     
+                        <label for="password">Enter your password:</label>
+                        <input type="password" value="" name="password" id="password"/>
+                    </div>
+                    <input type="button" data-theme="b" name="submit" id="submit" value="Submit">
+                </fieldset>
+            </form>                             
+        </div>
+  
+        <div data-theme="a" data-role="footer" data-position="fixed">
+  
+        </div>
+    </div>
+    <div data-role="page" id="second">
+        <div data-theme="b" data-role="header">
+            <h3>Welcome Page</h3>
+        </div>
+  
+        <div data-role="content">
+ 
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+
+
+
+$(document).on('pageinit', '#login', function(){ 
+    $(document).on('click', '#submit', function() { // catch the form's submit event
+        if($('#username').val().length > 0 && $('#password').val().length > 0){
+            // Send data to server through the Ajax call
+            // action is functionality we want to call and outputJSON is our data
+                $.ajax({url: 'http://10.0.0.48/weimarmosche/server/check.php',
+                    data: {action : 'login', formData : $('#check-user').serialize()},
+                    type: 'post',                  
+                    async: 'true',
+                    dataType: 'json',
+                    beforeSend: function() {
+                        // This callback function will trigger before data is sent
+                        //$.mobile.loading('show', {theme:"a", text:"Please wait...", textonly:true, textVisible: true}); // This will show ajax spinner
+                    },
+                    complete: function() {
+                        // This callback function will trigger on data sent/received complete
+                       // $.mobile.loading('hide'); // This will hide ajax spinner
+                    },
+                    success: function (result) {
+                        if(result.status) {
+                            user.name =  result.massage;
+                            //$.mobile.changePage("#second");  
+                        alert(user.name);
+                      
+                        } else {
+                            alert('Logon unsuccessful!');
+                        }
+                    },
+                    error: function (request,error) {
+                        // This callback function will trigger on unsuccessful action               
+                        alert('Network error has occurred please try again!');
+                    }
+                });                  
+        } else {
+            alert('Please fill all necessary fields!');
+        }          
+        return false; // cancel original event to prevent form submitting
+    });   
+});
+ 
+$(document).on('pagebeforeshow', '#second', function(){ 
+    $.mobile.activePage.find('.ui-content').html('Welcome ' + user.name);
+});
+ 
+var user = {
+    name : null
+}
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
