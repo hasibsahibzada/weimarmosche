@@ -33,7 +33,7 @@ if (isset($_POST["category"]))
  // all post array
  $all_posts = array();
 
- if ($result->num_rows > 0) {  // meaning the password and username is matched
+ if ($result->num_rows > 0) {  // meaning there are available posts 
     	
     // make image folder path	
  	$current_file_path = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -47,7 +47,7 @@ if (isset($_POST["category"]))
 		$img_url = $image_folder_path . $row['p_image'];
 
 	    // create associative array
-	   	$output = array('title' => $row['p_name'], 'body' => $row['p_body'],'img_url' =>$img_url);
+	   	$output = array('p_id' => $row['p_id'],'title' => $row['p_name'], 'body' => $row['p_body'],'img_url' =>$img_url);
 
 	    array_push($all_posts,$output);
 			
@@ -61,7 +61,7 @@ if (isset($_POST["category"]))
 	else {
 
 		//There is no post to that category
-		$output = array('status' => false, 'massage' => "");
+		$output = array('status' => false, 'massage' => "No post found");
 	    echo json_encode($output);
 
 	}

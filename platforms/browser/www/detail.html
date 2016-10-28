@@ -13,77 +13,163 @@
 	<link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css"/>
-
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css" >
   
   </head>
 
 
 
-	<body>
+<body>
 
- 	<div class="app">
+ <div class="app">
+   <div id="deviceready">
+  	<div canvas="container">
+
+	  <div id="toolbar">
+	  	<button type="button" onclick="javascript:location.href='index.html'">Back</button>
+
+	  		
+			<!-- <img id = "sidebarbutton" src="img/left.png" onclick="javascript:location.href='index.html'">
+			-->
+			  <div id="title" >
+				<h3 > Detail </h3>
+		  </div>
+	  </div>
 
 
-		<div canvas="container">
+	   <div id="PageWrapper">	
+		<div id="scroller">
+			<div class="container">
+				<div class="center wow fadeInDown">
 
-		<div id="toolbar">
+					<div id="product_detail">
+				
+					</div>
+					<!-- comment start here -->
+					<div class="row">
+						<div class="thumbnail">
 
-			<img id = "sidebarbutton" src="img/back.png" onclick="javascript:location.href='index.html'">
+							<h4 style="text-align:left;" >Comments</h4> <br>
 
-			Detail
+						<!-- Each persons' comment -->
+						
+						<div class="thumbnail" >
+							<div class="row">
+								<!-- user image -->
 
-		</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 ">
+									<img src="img/uc.png" class="img-responsive">
+								</div>
+
+								<!-- username and date of comment -->
+								<div class="col-xs-8 col-sm-8 col-md-8">
+								 	<h4>Naqibullah</h4>
+								 	<h5> 7 september at 14:46 </h5> 
+								</div>
+							</div>     	      
+								<!-- user's comment -->
+								<div class="row">
+									<div class="col-md-9 ">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+										</p>
+									</div>
+								</div>
+						</div>
 
 
-		<div id="PageWrapper">
-				<div id="scroller">
-					Product detail here
+
+						<div class="thumbnail" >
+							<div class="row">
+								<!-- user image -->
+
+								<div class="col-xs-4 col-sm-4 col-md-4 ">
+									<img src="img/uc.png" class="img-responsive">
+								</div>
+
+								<!-- username and date of comment -->
+								<div class="col-xs-8 col-sm-8 col-md-8">
+								 	<h4>Shafiullah</h4>
+								 	<h5> 7 september at 14:46 </h5> 
+								</div>
+							</div>     	      
+								<!-- user's comment -->
+								<div class="row">
+									<div class="col-md-9 ">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+										</p>
+									</div>
+								</div>
+						</div>
+
+
+
+						<div class="thumbnail" >
+							<div class="row">
+								<!-- user image -->
+
+								<div class="col-xs-4 col-sm-4 col-md-4 ">
+									<img src="img/uc.png" class="img-responsive">
+								</div>
+
+								<!-- username and date of comment -->
+								<div class="col-xs-8 col-sm-8 col-md-8">
+								 	<h4>Atiqullah</h4>
+								 	<h5> 7 september at 14:46 </h5> 
+								</div>
+							</div>     	      
+								<!-- user's comment -->
+								<div class="row">
+									<div class="col-md-9 ">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+										</p>
+									</div>
+								</div>
+						</div>
+
+					</div>
+
+					</div>
 				</div>
+			</div>
 		</div>
+	</div>
+	<div id="footer">
 
-		<div id="footer">
+		<img class="js-toggle-bottom-slidebar" src="img/up.png">
 
-		<img class="js-open-bottom-slidebar" id = "Footbaricon" src="img/down_menu.png">
-
-		</div>
-
-
+			</div>
 
 		</div>
-
-		<div off-canvas="slidebar-1 left reveal">
-				<div id = "sidbarnav">
-			<ul>
-				  <li><a href="#news">All</a></li>
-				  <li><a href="#news">News</a></li>
-				  <li><a href="#contact">Quran</a></li>
-				  <li><a href="#contact">Events</a></li>
-			</ul>
-				</div>
-		</div>
-
-		<div off-canvas="slidebar-4 bottom overlay">
+	
+		<div off-canvas="slidebar-4 bottom reveal" >
 			<div id = "FootbarMenu">
-				<ul>
-					  <li><a href="#news">All</a></li>
-					  <li><a href="#news">News</a></li>
-					  <li><a href="#contact">Quran</a></li>
-					  <li><a href="#contact">Events</a></li>
-				</ul>
+				<!-- menu changes here -->
 			</div>
 		</div>
  			
- 
-	</div>
+ 	</div>
+</div>
 
 
+<!-- phonegap javascript -->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- jQuery javascript -->
+<script src="js/jquery-3.1.1.js"></script>
+
+<!-- scroll feature -->
+<script src="js/scroll/iscroll.js"></script>
+
+<!-- bottom menu -->
 <script src="js/slidebars.js"></script>
 <script src="js/scripts.js"></script>
-<script src="js/scroll/iscroll.js?v4"></script>
+<script src="js/menus.js"></script>
+
+<!-- detail related javascript functions -->
+<script src="js/detail_functions.js"></script>
+
 
 <!-- This is javascript scroll feature  -->
 	<script type="text/javascript">
@@ -100,6 +186,12 @@
 	</script>
 
 
+<script type="text/javascript">
+
+// load the product
+	Load_Post_Detail();
+
+</script>
 
 
 <script type="text/javascript">app.initialize(); </script>

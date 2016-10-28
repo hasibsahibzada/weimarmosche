@@ -43,20 +43,9 @@
 			<div class="container">
 				<div class="center wow fadeInDown">
 
-					<div class="row" >
-
-						<h3 style="text-align:center;" >Smoke On The Water</h3>
-										
-						<img src="img/s1.jpg" class="img-responsive" style=" margin-left: auto; margin-right: auto;">
+					<div id="product_detail">
+				
 					</div>
-
-					<div class="row">
-						<div class="thumbnail">
-										
-							<p>Lasdfdsafsdf orem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdietLorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing.Nam quis justo in augue auctor imperdiet.</p>    
-						</div>     
-					</div>
-					
 					<!-- comment start here -->
 					<div class="row">
 						<div class="thumbnail">
@@ -147,23 +136,12 @@
 	</div>
 	<div id="footer">
 
-	<img class="js-toggle-bottom-slidebar" src="img/up.png">
+		<img class="js-toggle-bottom-slidebar" src="img/up.png">
 
 			</div>
 
 		</div>
-
-		<div off-canvas="slidebar-1 left reveal">
-				<div id = "sidbarnav">
-			<ul>
-				  <li><a href="#news">All</a></li>
-				  <li><a href="#news">News</a></li>
-				  <li><a href="#contact">Quran</a></li>
-				  <li><a href="#contact">Events</a></li>
-			</ul>
-				</div>
-		</div>
-
+	
 		<div off-canvas="slidebar-4 bottom reveal" >
 			<div id = "FootbarMenu">
 				<!-- menu changes here -->
@@ -174,14 +152,24 @@
 </div>
 
 
+<!-- phonegap javascript -->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- jQuery javascript -->
+<script src="js/jquery-3.1.1.js"></script>
+
+<!-- scroll feature -->
+<script src="js/scroll/iscroll.js"></script>
+
+<!-- bottom menu -->
 <script src="js/slidebars.js"></script>
 <script src="js/scripts.js"></script>
-<script src="js/scroll/iscroll.js?v4"></script>
 <script src="js/menus.js"></script>
+
+<!-- detail related javascript functions -->
+<script src="js/detail_functions.js"></script>
+
 
 <!-- This is javascript scroll feature  -->
 	<script type="text/javascript">
@@ -197,18 +185,14 @@
 
 	</script>
 
-<!--
+
 <script type="text/javascript">
 
-	var postid = window.localStorage.getItem("postid");
-
-
-	var postname = document.getElementById("product_detail");
-
-		postname.innerHTML = postid + " is the thing we want to show <br>";
+// load the product
+	Load_Post_Detail();
 
 </script>
--->
+
 
 <script type="text/javascript">app.initialize(); </script>
 

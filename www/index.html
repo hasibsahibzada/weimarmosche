@@ -123,13 +123,15 @@
 
 			<div class="container">
 			  <div class="center wow fadeInDown">
-
+			  	<div id="scroller">
+			  	<div class="container">
 				<h2 style="text-align:center;"> Posts </h2>
 
 				<!-- posts by category comes here -->
 				<div id="posts">
-
-			</div>
+				</div>
+				</div>
+				</div>
 			</div>
 		   </div>
 		  </div>
@@ -161,7 +163,45 @@
 </div>
 
 
-<!-- This is javascript scroll feature  -->
+
+<!-- phonegap javascript -->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<!-- jQuery javascript -->
+<script src="js/jquery-3.1.1.js"></script>
+
+<!-- bootstrap javascript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- scroll page javascript -->
+<script src="js/scroll/iscroll.js"></script>
+
+<!-- sidebar and bottom menu javascript -->
+<script src="js/slidebars.js"></script>
+<script src="js/menus.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- index javascript functions -->
+<script src="js/index_functions.js"></script>
+
+
+<!-- load the content from server -->
+<script type="text/javascript">
+
+	// load sidebar menu
+	load_sidebar_menu();
+
+	// load bottom menu
+	load_bottom_menu();
+
+	// load posts
+	load_posts(0);
+</script>
+
+<!-- Page related functions javascript -->
+<script src="js/index_functions.js"></script>
+
 	<script type="text/javascript">
 
 		var appscroll;
@@ -173,198 +213,7 @@
 
 		document.addEventListener('DOMContentLoaded', loaded, false);
 
-	
 	</script>
-
-
-	<!-- Javascript functions -->
-	<script type="text/javascript">
-
-	
-	// logout 
-	function logout(){
-
-				// clear the storage
-                window.localStorage.removeItem("key");
-                window.localStorage.clear();
-                window.location.href = "index.html";
-
-	}
-
-	function view_detail(postid) {
-
-			   var keyName = window.localStorage.key(1);
-
-               window.localStorage.setItem("postid", postid);
-
-		       window.location.href = "detail.html";
-
-	}
-
-	function load_posts(cat_id){
-
-		$.ajax({url: 'http://10.0.0.48/weimarmosche/server/webserver/get_posts.php',
-			data: {category: cat_id},
-            type: 'post',                  
-            async: 'true',
-            dataType: 'json',
-            
-            beforeSend: function() {
-                // This callback function will trigger before data is sent
-                console.log("post requesting..");
-                },
-
-            complete: function() {
-                // This callback function will trigger on data sent/received complete
-                console.log("posts completed");
-                    },
-
-            success: function (result) {
-            	// if posts available to the category
-            	if (typeof result.status === "undefined" && typeof result.wrong === "undefined") {
-				   	var all_body_post ="";
-				    for (i = 0; i < result.length; i++) {
-
-				    	all_body_post +="<div class='row'><div class='thumbnail'>";
-
-	   					all_body_post += "<div onclick=view_detail(" + result[i].title +")>";
-
-	   					all_body_post += "<h3>" + result[i].title + "</h3>";
-
-	   					all_body_post += "<p>";
-
-	   					all_body_post += result[i].body;
-
-	   					all_body_post += "</p>";
-
-	   					all_body_post += "<img src='" + result[i].img_url +"' class='img-responsive' style='margin-left: auto; margin-right: auto;'>";
-	   					all_body_post += "</div></div></div>"
-					}
-		
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-
-
-
-				} else {   // if something went wrong
-				  
-					
-            		if (typeof result.status === "undefined") {// meaning there is no posts
-            		}
-
-            		else {
-
-					var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "There is no post for this category!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-
-            		}
-
-            		if (typeof result.wrong === "undefined") {// meaning there is no posts
-
-            		}
-            		else {
-
-					var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "Something went wrong!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-
-            	}	
-
-				}
-
-            	
-                
-               
-        	},
-
-        	error: function (request,error) {
-            	// This callback function will trigger on unsuccessful action  
-
-                //alert('Network error has occurred please try again!');
-                var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "network Something went wrong!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-            }
-
-        }); 
-
-	}
-	
-	</script>
-
-<!-- phonegap javascript -->
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="js/slidebars.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/scroll/iscroll.js?v4"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/menus.js"></script>
-
-
-<script type="text/javascript">
-
-$( document ).ready(function() {
-    
-
-// load sidebar menu
-load_sidebar_menu();
-
-// load bottom menu
-load_bottom_menu();
-
-// load posts
-load_posts(0);
-
-
-
-
-});
-
-</script>
 
 <script type="text/javascript">app.initialize(); </script>
 

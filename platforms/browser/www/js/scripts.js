@@ -4,31 +4,70 @@
 
     // Events
     $( controller.events ).on( 'init', function () {
-        console.log( 'Init event' );
+        //console.log( 'Init event' );
     } );
 
     $( controller.events ).on( 'exit', function () {
-        console.log( 'Exit event' );
+        //console.log( 'Exit event' );
     } );
 
     $( controller.events ).on( 'css', function () {
-        console.log( 'CSS event' );
+        //console.log( 'CSS event' );
     } );
 
     $( controller.events ).on( 'opening', function ( event, id ) {
-        console.log( 'Opening event of slidebar with id ' + id );
+       // console.log( 'Opening event of slidebar with id ' + id );
+
+        if (id == "slidebar-4"){
+
+            // get the footer
+            var footer_image = document.getElementById("footer");
+
+            var newimagetag = "<img  src='img/down.png'>";
+
+            footer_image.innerHTML = newimagetag;
+
+        }
+
+        // left sidebar conditions
+        if (id == "slidebar-1"){
+
+           
+        }
+
+
+
     } );
 
     $( controller.events ).on( 'opened', function ( event, id ) {
-        console.log( 'Opened event of slidebar with id ' + id );
+        //console.log( 'Opened event of slidebar with id ' + id );
     } );
 
     $( controller.events ).on( 'closing', function ( event, id ) {
-        console.log( 'Closing event of slidebar with id ' + id );
+        //console.log( 'Closing event of slidebar with id ' + id );
+
+         if (id == "slidebar-4"){
+
+            // get the footer
+            var footer_image = document.getElementById("footer");
+
+            var newimagetag = "<img src='img/up.png'>";
+
+            footer_image.innerHTML = newimagetag;
+
+        }
+
+        // left sidebar conditions
+        if (id == "slidebar-1"){
+
+            
+
+        }
+
     } );
 
     $( controller.events ).on( 'closed', function ( event, id ) {
-        console.log( 'Closed event of slidebar with id ' + id );
+        //console.log( 'Closed event of slidebar with id ' + id );
     } );
 
     // Initialize Slidebars
@@ -131,72 +170,72 @@
     // Is and get
     $( '.js-is-active' ).on( 'click', function ( event ) {
         event.stopPropagation();
-        console.log( controller.isActive() );
+        //console.log( controller.isActive() );
     } );
 
     $( '.js-is-active-slidebar' ).on( 'click', function ( event ) {
         event.stopPropagation();
         var id = prompt( 'Enter a Slidebar id' );
-        console.log( controller.isActiveSlidebar( id ) );
+        //console.log( controller.isActiveSlidebar( id ) );
     } );
 
     $( '.js-get-active-slidebar' ).on( 'click', function ( event ) {
         event.stopPropagation();
-        console.log( controller.getActiveSlidebar() );
+        //console.log( controller.getActiveSlidebar() );
     } );
 
     $( '.js-get-all-slidebars' ).on( 'click', function ( event ) {
         event.stopPropagation();
-        console.log( controller.getSlidebars() );
+        //console.log( controller.getSlidebars() );
 
     } );
 
     $( '.js-get-slidebar' ).on( 'click', function ( event ) {
         event.stopPropagation();
         var id = prompt( 'Enter a Slidebar id' );
-        console.log( controller.getSlidebar( id ) );
+        //console.log( controller.getSlidebar( id ) );
     } );
 
     // Callbacks
     $( '.js-init-callback' ).on( 'click', function ( event ) {
         event.stopPropagation();
         controller.init( function () {
-            console.log( 'Init callback' );
+           // console.log( 'Init callback' );
         } );
     } );
 
     $( '.js-exit-callback' ).on( 'click', function ( event ) {
         event.stopPropagation();
         controller.exit( function () {
-            console.log( 'Exit callback' );
+           // console.log( 'Exit callback' );
         } );
     } );
 
     $( '.js-css-callback' ).on( 'click', function ( event ) {
         event.stopPropagation();
         controller.css( function () {
-            console.log( 'CSS callback' );
+           // console.log( 'CSS callback' );
         } );
     } );
 
     $( '.js-open-callback' ).on( 'click', function ( event ) {
         event.stopPropagation();
         controller.open( 'slidebar-1', function () {
-            console.log( 'Open callback' );
+           // console.log( 'Open callback' );
         } );
     } );
 
     $( '.js-close-callback' ).on( 'click', function ( event ) {
         event.stopPropagation();
         controller.close( function () {
-            console.log( 'Close callback' );
+           // console.log( 'Close callback' );
         } );
     } );
 
     $( '.js-toggle-callback' ).on( 'click', function ( event ) {
         event.stopPropagation();
         controller.toggle( 'slidebar-1', function () {
-            console.log( 'Toggle callback' );
+           // console.log( 'Toggle callback' );
         } );
     } );
 } ) ( jQuery );

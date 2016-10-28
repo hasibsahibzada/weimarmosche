@@ -17,35 +17,35 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css" >
 	<link rel="stylesheet" href="css/animate.min.css">  <!-- Menu slide animation -->
 	<link rel="stylesheet" href="css/slider.css">  <!-- Menu slide animation -->
+	<link rel="stylesheet" href="css/list_post.css" >
+
 
 	<link rel="stylesheet" href="css/responsive.css" >
   </head>
 
 
-
-	<body>
-
- 	<div class="app">
-
-
-		<div canvas="container">
-
+<body>
+ <div class="app">
+ 	<div id="deviceready">
+	  <div canvas="container">
 		<div id="toolbar">
 
-			<img class="js-open-left-slidebar" id = "sidebarbutton" src="img/sidebar.png">
-
-			Weimar Mosche
-
+		 <div class="js-toggle-left-slidebar" id="sidebar_img">
+		  <img  id = "sidebarbutton" src="img/sidebar.png">
+		 </div>
+		  <div id="title" >
+				Weimar Mosche
+		  </div>
 		</div>
 
 
-		<div id="PageWrapper">
-				<div id="scroller">
+	   <div id="PageWrapper">
+		  <div id="scroller">
 					
 					<!-- <ul id="thelist"><li>Pretty row 1</li></ul> -->
 
 					<!-- Slider -->
-					<section id="main-slider" class="no-margin">
+			<section id="main-slider" class="no-margin">
 						<div class="carousel slide">
 							<ol class="carousel-indicators">
 							<li data-target="#main-slider" data-slide-to="0" class="active"></li>
@@ -119,64 +119,89 @@
 							</div>
 						</div>
 						</div>
-					</section>
+			</section>
 
-					<div class="container">
-						<div class="center wow fadeInDown">
+			<div class="container">
+			  <div class="center wow fadeInDown">
+			  	<div id="scroller">
+			  	<div class="container">
+				<h2 style="text-align:center;"> Posts </h2>
 
-							<h2 style="text-align:center;"> Posts </h2>
-						</div>
-					</div>
+				<!-- posts by category comes here -->
+				<div id="posts">
 				</div>
+				</div>
+				</div>
+			</div>
+		   </div>
+		  </div>
 		</div>
 
-		<div id="footer">
-
-			 <img class="js-open-bottom-slidebar" id = "Footbaricon" src="img/down_menu.png">
-
-		</div>
+	
+		<div id="footer" class="js-toggle-bottom-slidebar" >
 
 
+			<img src="img/up.png">
 
 		</div>
+	 
+	</div>
 
 		<div off-canvas="slidebar-1 left reveal">
 				<div id = "sidbarnav">
-			<ul>
-				  <li><a href="#news">All</a></li>
-				  <li><a href="#news">News</a></li>
-				  <li><a href="#contact">Quran</a></li>
-				  <li><a href="#contact">Events</a></li>
-			</ul>
+					<!-- sidebar menu loaded from server -->
 				</div>
 		</div>
 
-		<div off-canvas="slidebar-4 bottom overlay">
+		<div off-canvas="slidebar-4 bottom reveal" >
 			<div id = "FootbarMenu">
-				<ul>
-					  <li><a  href="login.html">Login</a></li>
-					  <li><a href="newfeed.html">Post</a></li>
-					  <li><a href="message.html">Message</a></li>
-					  <li><a href="#contact">Events</a></li>
-				</ul>
+				<!-- bottom menu loaded from server -->
 			</div>
 		</div>
  			
- 
-	</div>
+ 		</div>
+</div>
 
 
+
+<!-- phonegap javascript -->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="js/slidebars.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/scroll/iscroll.js?v4"></script>
+<!-- jQuery javascript -->
+<script src="js/jquery-3.1.1.js"></script>
+
+<!-- bootstrap javascript -->
 <script src="js/bootstrap.min.js"></script>
 
+<!-- scroll page javascript -->
+<script src="js/scroll/iscroll.js"></script>
 
-<!-- This is javascript scroll feature  -->
+<!-- sidebar and bottom menu javascript -->
+<script src="js/slidebars.js"></script>
+<script src="js/menus.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- index javascript functions -->
+<script src="js/index_functions.js"></script>
+
+
+<!-- load the content from server -->
+<script type="text/javascript">
+
+	// load sidebar menu
+	load_sidebar_menu();
+
+	// load bottom menu
+	load_bottom_menu();
+
+	// load posts
+	load_posts(0);
+</script>
+
+<!-- Page related functions javascript -->
+<script src="js/index_functions.js"></script>
+
 	<script type="text/javascript">
 
 		var appscroll;
@@ -188,11 +213,7 @@
 
 		document.addEventListener('DOMContentLoaded', loaded, false);
 
-	
 	</script>
-
-
-
 
 <script type="text/javascript">app.initialize(); </script>
 
