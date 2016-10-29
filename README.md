@@ -43,3 +43,6 @@ This application is programmed in Phonegap, which means that it will work in dif
   1. The application should notify daily hadith to user to read.
 9. Quran Ayat Feature.
   1. Implement audio streaming.
+10. Social Media Integration
+  1. Users should share posts to thier facebook wall.
+  2. Users should be able to tweet the posts on twitter. 
