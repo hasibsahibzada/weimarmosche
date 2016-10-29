@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Oct 24, 2016 at 12:03 PM
+-- Generation Time: Oct 29, 2016 at 11:13 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.5.26
 
@@ -67,7 +67,16 @@ CREATE TABLE `comments` (
   `Date` date NOT NULL,
   `post_id` int(10) NOT NULL,
   `comment_text` mediumtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`c_id`, `Author`, `Date`, `post_id`, `comment_text`) VALUES
+(1, 'Hasibullah', '2016-10-06', 1, 'Hi, I want to join this. When and where i can join this please let me know. Love you. '),
+(2, 'Naqib', '2016-10-07', 1, 'Great, I love this post. \r\n\r\nI want to wish you all the best'),
+(3, 'Shafi', '2016-10-07', 1, 'Helloooooo, dear friends, just hello to all of you. ');
 
 -- --------------------------------------------------------
 
@@ -142,7 +151,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `posts`
 --
