@@ -2,18 +2,13 @@
 This application is designed for Haus des Orients e.V. Mosque in Weimar.
 
 
-## Features
+## Features until now
 1. Admin can post new events, news and other feeds.
 2. Users can view post list with their relavent pictures.
 3. Users can switch to different categories of post.
 4. Users can view detail of each post.
 5. Users can comment and view other comments. 
 6. Admin can only login.
-
-2. Read daily Hadith.
-3. Read Holly Quran Aayats with translation.
-4. Get alerts about Prayer Time.
-5. Admin can post new feeds, set prayer time, send broadcast message to clients. 
 
 
 ## Platform
