@@ -19,10 +19,13 @@ This application is programmed in Phonegap, which means that it will work in dif
 4. BlackBerry.
 
 ## ToDos
-1. Scroll feature not working at startup. 
+1. Fix Scroll feature not working at startup. 
 2. Allignment of menus and pages in all devices (use percentage)
 3. back button in detail page
 4. login tab for forget password does not work
-5. comment feature implementation
+5. Implement User comment dialog feature.
 6. JQuery loading feature for post, 
-7. Load posts by date/time.
+7. Load posts and comments according to date/time.
+8. Implement SQLLight for posts and comments. (Fast Caching).
+9. Define a specific amount of posts / comments to be loaded, if more needed user need to slide down the page or click more.
+
