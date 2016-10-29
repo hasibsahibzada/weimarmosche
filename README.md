@@ -19,9 +19,10 @@ This application is programmed in Phonegap, which means that it will work in dif
 4. BlackBerry.
 
 ## ToDos
-1. Development of pages
-	-Login page, feed form, messge, calendar, menus.
-2. Connections (Dynamic) -> DB
-3. Content Management -> CMS (Website with form)
-4. Caching page.
-5. Converting to Android and iOS apps and upload to app store.
+1. Scroll feature not working at startup. 
+2. Allignment of menus and pages in all devices (use percentage)
+3. back button in detail page
+4. login tab for forget password does not work
+5. comment feature implementation
+6. JQuery loading feature for post, 
+7. Load posts by date/time.
