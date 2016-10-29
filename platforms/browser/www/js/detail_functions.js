@@ -34,8 +34,6 @@ function Load_Post_Detail(){
             	if (typeof result.status === "undefined" && typeof result.wrong === "undefined") {
 				   	var body_post ="";
 
-				   	console.log(result);
-
 				   	body_post += "<div class='row'>";
 
 				   	body_post += "<h3 style='text-align:center;' >" + result.title + "</h3>";
