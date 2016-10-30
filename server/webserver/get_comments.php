@@ -7,7 +7,7 @@ require_once('connect.php');
 if (isset($_POST["PostId"]))
 {
  
- // get the post category
+ // get the post ID
  $post_id = $_POST["PostId"];
 
 
@@ -50,7 +50,7 @@ if (isset($_POST["PostId"]))
 else 
 {
   
-	//The category id is not set
+	//The post id is not set
 	$output = array('wrong' => false, 'massage' => "PostId is not set");
 	echo json_encode($output);
 

@@ -55,15 +55,29 @@ function load_bottom_menu(){
 	// bottom menu
 	if (localStorage.username){   // if the user is logged in
 
-		var name = localStorage.getItem("name");
-
+		//var name = localStorage.getItem("name");
 		//var PWDiv = document.getElementById("title");
 		//PWDiv.innerHTML +="Login as " + name + "<br>";
 
-		// change footbar menu
-		var user_menu = "<ul> <li><a href='newfeed.html'>Post</a></li> <li><a href='prayertime.html'>Set prayer</a></li> <li><a href='#'' onclick= 'logout();''>Logout</a></li> </ul>";
-		var footbar_menu = document.getElementById("FootbarMenu");
+		// change footbar menu based on current page
+		var path = window.location.href;
+		var page = path.split("/").pop();
+		
+		var user_menu = "";
 
+		if (page == "detail.html"){ // if detail page
+
+			user_menu = "<ul> <li><a href='newfeed.html'>Comment</a></li> </ul>";
+
+		}
+		else {// if index page
+
+			user_menu = "<ul> <li><a href='newfeed.html'>Post</a></li> <li><a href='prayertime.html'>Set prayer</a></li> <li><a href='#'' onclick= 'logout();''>Logout</a></li> </ul>";
+
+		}
+
+		// write the menu in the footbarmenu
+		var footbar_menu = document.getElementById("FootbarMenu");
 		footbar_menu.innerHTML = user_menu;
 
 
