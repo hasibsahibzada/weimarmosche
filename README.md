@@ -30,19 +30,23 @@ This application is programmed in Phonegap, which means that it will work in dif
   2. Load posts according to date/time.
   3. Implement SQLLight (Fast Caching).
   4. Define a specific amount of posts to be loaded, if more needed user need to slide down the page or click more.
+  5. Upload multiple Images for one post.
+3. IMage Banner in Main page
+  1. Implement a management page for banner.
+  2. Dynamic banner from the server.
 4. Interface
   1. Implement JQuery loading feature for post and comments.
   2. Fix Scroll feature not working at startup. 
   3. Allignment of menus and pages in all devices (use percentage)
   4. back button in detail page
   5. login tab for forget password does not work
-7. Prayer Time
+5. Prayer Time
   1. Admin should be able to set Juma Prayer time.
   2. Users should get alerted for the prayer.
-8. Daily Hadith 
+6. Daily Hadith 
   1. The application should notify daily hadith to user to read.
-9. Quran Ayat Feature.
+7. Quran Ayat Feature.
   1. Implement audio streaming.
-10. Social Media Integration
+8. Social Media Integration
   1. Users should share posts to thier facebook wall.
   2. Users should be able to tweet the posts on twitter. 
