@@ -1,14 +1,14 @@
-<?php header('Access-Control-Allow-Origin: *');
+<?php header('content-type: application/json; charset=utf-8');
 
  // get the connection to database
  require_once('connect.php');
 
 
-if (isset($_POST["category"]))
+if (isset($_GET["category"]))
 {
  
  // get the post category
- $cat_id = $_POST["category"];
+ $cat_id = $_GET["category"];
 
 
  // prepare the query 
@@ -36,9 +36,7 @@ if (isset($_POST["category"]))
  if ($result->num_rows > 0) {  // meaning there are available posts 
     	
     // make image folder path	
- 	$current_file_path = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
- 	$current_path 		=  substr($current_file_path,0,strlen($current_file_path)-13); // 13 is the lenght of (get_posts.php)
- 	$image_folder_path = "http://" . $current_path . "Images/";
+ 	$image_folder_path = "http://weimarmoschee.byethost18.com/images/";
 
 
 	while($row = $result->fetch_assoc()) {
@@ -55,14 +53,14 @@ if (isset($_POST["category"]))
 		}
 
 		// encode the array to json
-		echo json_encode($all_posts);
+		echo $_GET['callback'] . '('.json_encode($all_posts).')';
 	
 	} 
 	else {
 
 		//There is no post to that category
 		$output = array('status' => false, 'massage' => "No post found");
-	    echo json_encode($output);
+		echo $_GET['callback'] . '('.json_encode($output).')';
 
 	}
 
@@ -73,15 +71,10 @@ else
 {
   
 	//The category id is not set
-	$output = array('wrong' => false, 'massage' => "cat is not set");
-	echo json_encode($output);
+	$output = array('status' => false, 'massage' => "category is not set");
+	echo $_GET['callback'] . '('.json_encode($output).')';
 
 }
 
 
-
-
-
-
-	
 ?>

@@ -1,6 +1,4 @@
-<?php header('Access-Control-Allow-Origin: *');
-
-
+<?php header('content-type: application/json; charset=utf-8');
 
 	//the database connection is included
  	require_once('connect.php');
@@ -28,7 +26,7 @@
 		    $output = array('status' => true, 'name' => $name,'username'=>$user_name);
 
 		    // encode the array to json format 
-		    echo json_encode($output);
+			echo $_GET['callback'] . '('.json_encode($output).')';
 
 		    }
 
@@ -36,7 +34,8 @@
 
 		// The username or password did not matched
 		$output = array('status' => false, 'massage' => "login failed");
-	    echo json_encode($output);
+	    echo $_GET['callback'] . '('.json_encode($output).')';
+
 		}
 
    

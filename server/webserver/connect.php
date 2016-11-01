@@ -1,6 +1,16 @@
 <?php
 
-// database user 
+// Online database  
+/*
+$username 	= "b18_19040626";
+$password 	= "weimarmasjid12345";
+$db_name  	= "b18_19040626_wmdb";
+
+$servername = "sql112.byethost18.com";
+*/
+
+
+// local database
 $username 	= "root";
 $password 	= "root";
 $db_name  	= "weimar_mosche";

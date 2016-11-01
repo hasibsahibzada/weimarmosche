@@ -9,13 +9,14 @@ $("#login").click(function CheckPW(){
             var Uname = document.getElementById("username").value;
             var Pword = document.getElementById("password").value;
             
-            // Send data to server through the Ajax call
-            // action is functionality we want to call and outputJSON is our data
-            $.ajax({url: 'http://10.0.0.48/weimarmosche/server/webserver/login.php',
+            // create the request url
+            request_url = server_add + 'login.php';
+
+            $.ajax({url: request_url,
                     data: {username:Uname, password: Pword},
                     type: 'post',                  
                     async: 'true',
-                    dataType: 'json',
+                    dataType: 'jsonp',
                     beforeSend: function() {
                         // This callback function will trigger before data is sent
                         console.log("beforesend");

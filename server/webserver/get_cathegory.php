@@ -1,4 +1,4 @@
-<?php header('Access-Control-Allow-Origin: *');
+<?php header('content-type: application/json; charset=utf-8');
 
 	
 	//the database connection is included
@@ -19,6 +19,7 @@
 
     	// include the All keyword for category
     	$output = array('cat_id' => '0', 'cat_name' => 'All');
+    	
     	// push the category to array
 		array_push($category,$output);
 
@@ -32,14 +33,14 @@
 		}
 
 		// encode the array to json format
-		echo json_encode($category);
+		echo $_GET['callback'] . '('.json_encode($category).')';
 
 	} 
 	else {
 
-		// The username or password did not matched
-		$output = array('status' => false, 'massage' => "login failed");
-	    echo json_encode($output);
+		// The categories were not found
+		$output = array('status' => false, 'massage' => "No category found");
+		echo $_GET['callback'] . '('.json_encode($output).')';
 
 	}
 

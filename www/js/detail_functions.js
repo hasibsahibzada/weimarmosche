@@ -6,18 +6,15 @@ function Load_Post_Detail(){
 	// get the current post id that was clicked
 	var post_id = window.localStorage.getItem("postid");
 
-
-	//var postname = document.getElementById("product_detail");
-
-	//postname.innerHTML = postid + " is the thing we want to show <br>";
-
-
+	// create the request url
+	request_url = server_add + 'get_post_detail.php';
+	console.log(request_url);
 	// query the database to load that post
-	$.ajax({url: 'http://10.0.0.48/weimarmosche/server/webserver/get_post_detail.php',
+	$.ajax({url: request_url,
 			data: {PostId: post_id},
-            type: 'post',                  
+            type: 'GET',                  
             async: 'true',
-            dataType: 'json',
+            dataType: 'jsonp',
             
             beforeSend: function() {
                 // This callback function will trigger before data is sent
@@ -31,9 +28,8 @@ function Load_Post_Detail(){
 
             success: function (result) {
             	// if posts available to the category
-            	if (typeof result.status === "undefined" && typeof result.wrong === "undefined") {
-				   	var body_post ="";
-
+            	if (typeof result.status === "undefined") {
+				   	
 				   	body_post += "<div class='row'>";
 
 				   	body_post += "<h3 style='text-align:center;' >" + result.title + "</h3>";
@@ -57,62 +53,23 @@ function Load_Post_Detail(){
 				} else {   // if something went wrong
 				  
 					
-            		if (typeof result.status === "undefined") {// meaning there is no posts
-            		
-            		}
+            		body_post += "<div class='row'>";
 
-            		else {
-
-            		/*
-					var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "There is no post for this category!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-
-					*/
-            		}
-
-            		if (typeof result.wrong === "undefined") {// meaning there is no posts
-
-            		}
-            		else {
-
-            			/*
-					var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "Something went wrong!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
+	   				body_post += "<div class='row'><div class='thumbnail'>";
+						
+					body_post += "<p>" + result.massage + "</p>";    
 					
-						*/
+					body_post += "</div></div>";
+
+					// access the post div 
+					var post_div = document.getElementById("product_detail");
+
+					// insert the new elements in the post div
+					post_div.innerHTML = body_post;
+
+
             	}	
-
-				}
-
-            	
-                
-               
+    
         	},
 
         	error: function (request,error) {
@@ -149,15 +106,21 @@ function Load_Post_Detail(){
 // post comments
 function Load_Post_Comments(){
 
-// get the current post id that was clicked
+	// get the current post id that was clicked
 	var post_id = window.localStorage.getItem("postid");
 
-// query the database to load that post
-	$.ajax({url: 'http://10.0.0.48/weimarmosche/server/webserver/get_comments.php',
+	// create the request url 
+	request_url = server_add + 'get_comments.php';
+
+	// access the post div 
+	var comment_div = document.getElementById("all_comments");
+
+	// query the database to load that post
+	$.ajax({url: request_url,
 			data: {PostId: post_id},
-            type: 'post',                  
+            type: 'GET',                  
             async: 'true',
-            dataType: 'json',
+            dataType: 'jsonp',
             
             beforeSend: function() {
                 // This callback function will trigger before data is sent
@@ -171,8 +134,7 @@ function Load_Post_Comments(){
 
             success: function (result) {
             	// if posts available to the category
-            	if (typeof result.status === "undefined" && typeof result.wrong === "undefined") {
-				   	var body_comment ="";
+            	if (typeof result.status === "undefined") {
 
 				   	for (i = 0; i < result.length; i++) {
 
@@ -196,69 +158,20 @@ function Load_Post_Comments(){
 
 				   	}
 
-			
-
-					// access the post div 
-					var comment_div = document.getElementById("all_comments");
-
+		
 					// insert the new elements in the post div
 					comment_div.innerHTML = body_comment;
 		
 
 				} else {   // if something went wrong
-				  
+
+            		body_comment += "<div class='thumbnail'><div class='row'>";
+						
+				
+					body_comment += "<p>" + result[i].massage + "</p>";
+		
+					body_comment += "</div></div>";
 					
-            		if (typeof result.status === "undefined") {// meaning there is no posts
-            		
-            		}
-
-            		else {
-
-            		/*
-					var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "There is no post for this category!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-
-					*/
-            		}
-
-            		if (typeof result.wrong === "undefined") {// meaning there is no posts
-
-            		}
-            		else {
-
-            			/*
-					var all_body_post ="<div class='row'><div class='thumbnail'>";
-					all_body_post += "<p>";
-
-					all_body_post += "Something went wrong!" ;
-
-					all_body_post += "</p>";
-
-
-					all_body_post += "</div></div></div>"
-
-					// access the post div 
-					var post_div = document.getElementById("posts");
-
-					// insert the new elements in the post div
-					post_div.innerHTML = all_body_post;
-					
-						*/
-            	}	
-
 				}
 
             	

@@ -1,4 +1,4 @@
-<?php header('Access-Control-Allow-Origin: *');
+<?php header('content-type: application/json; charset=utf-8');
 
 // get the connection to database
 require_once('connect.php');
@@ -35,14 +35,14 @@ if (isset($_POST["PostId"]))
 		}		
 
 	// encode the array to json
-	echo json_encode($all_comments);
+	echo $_GET['callback'] . '('.json_encode($all_comments).')';
 	
 	} 
 	else {
 
 		//There is no comment to that category
 		$output = array('status' => false, 'massage' => "no comments found");
-	    echo json_encode($output);
+		echo $_GET['callback'] . '('.json_encode($output).')';
 
 	}
 
@@ -52,7 +52,7 @@ else
   
 	//The post id is not set
 	$output = array('wrong' => false, 'massage' => "PostId is not set");
-	echo json_encode($output);
+	echo $_GET['callback'] . '('.json_encode($output).')';
 
 }
 

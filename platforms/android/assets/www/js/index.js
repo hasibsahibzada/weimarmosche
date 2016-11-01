@@ -16,6 +16,32 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+// all global variables here
+
+
+
+// online server address
+var server_add = 'http://weimarmoschee.byethost18.com/';
+
+
+// local server
+//var server_add = "http://127.0.0.1/weimarmosche/server/webserver/";
+var request_url = "";
+
+//Menus
+var sidebar_menu_list = "";
+var bottom_menu_list = "";
+ 
+// Access the menus
+var footbar_menu = document.getElementById("FootbarMenu");
+var sidebar_menu = document.getElementById("sidbarnav");
+
+// post detail
+var body_post ="";
+var body_comment ="";
+
+
 var app = {
     // Application Constructor
     initialize: function() {
