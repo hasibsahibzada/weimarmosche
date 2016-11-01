@@ -14,7 +14,7 @@ $("#login").click(function CheckPW(){
 
             $.ajax({url: request_url,
                     data: {username:Uname, password: Pword},
-                    type: 'post',                  
+                    type: 'GET',                  
                     async: 'true',
                     dataType: 'jsonp',
                     beforeSend: function() {

@@ -4,8 +4,8 @@
  	require_once('connect.php');
 
     // get username and password
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $_GET['username'];
+    $password = $_GET['password'];
 
     // create the SQL statement
     $sql = "select * from account WHERE username ='$username' AND password ='$password'";
